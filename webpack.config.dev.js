@@ -1,11 +1,21 @@
-import path from 'path';
+import path from 'path'
+import webpack from 'webpack';
 
 export default {
   devtools: 'eval-source-map',
-  entry: path.join(__dirname,'./Client/index.js'),
+  entry: [
+    'webpack-hot-middleware/client',
+    path.join(__dirname, './Client/index.js')
+  ],
   output: {
-    path: '/'
+    path: '/',
+    publicPath: '/'
   },
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {
@@ -14,11 +24,11 @@ export default {
           path.join(__dirname, 'Client')
 
         ],
-        loaders: [ 'babel' ]
+      loaders: [ 'react-hot','babel' ]
       }
     ]
   },
   resolve: {
     extentions: [ '', '.js' ]
-}
+  }
 }
