@@ -16,7 +16,7 @@ class SignupForm extends React.Component {
       this.onSubmit = this.onSubmit.bind(this);
        }
     onChange(e){
-      this.setState({[e.target.name]:[e.target.value]});
+      this.setState({[e.target.name]:e.target.value});
     }
     onSubmit(e){
       e.preventDefault();

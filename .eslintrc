@@ -1,0 +1,50 @@
+{
+ "parser": "babel-eslint",
+ "extends": [
+   "standard",
+   "standard-react"
+ ],
+ "plugins": [
+   "import",
+   "babel",
+   "react",
+   "promise"
+ ],
+ "env": {
+   "browser" : true
+ },
+ "globals": {
+   "__DEV__"      : false,
+   "__TEST__"     : false,
+   "__PROD__"     : false,
+   "__COVERAGE__" : false
+ },
+ "rules": {
+   "key-spacing"          : 0,
+   "jsx-quotes"           : [2, "prefer-single"],
+   "max-len"              : [2, 120, 2],
+   "object-curly-spacing" : [2, "always"],
+   "curly"                : 0,
+   "import/no-unresolved" : [2, {commonjs: true, amd: true}],
+   "import/named"         : 2,
+   "import/namespace"     : 2,
+   "import/default"       : 2,
+   "import/export"        : 2
+ },
+ "settings": {
+   "import/ignore": [
+     "node_modules",
+     "\\.json$"
+   ],
+   "import/parser": "babel-eslint",
+   "import/resolve": {
+     "extensions": [
+       ".js",
+       ".jsx",
+       ".json",
+       ".android.js",
+       ".ios.js"
+     ]
+   }
+ }
+}
