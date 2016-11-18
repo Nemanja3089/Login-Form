@@ -25,4 +25,4 @@ SignupPage.propTypes = {
 }
 
 
-export default connect((state) => {return {}},{userSignupRequest, addFlashMessage})(SignupPage);
+export default connect(null,{userSignupRequest, addFlashMessage})(SignupPage);
