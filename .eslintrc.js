@@ -8,7 +8,7 @@ module.exports = {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true
-        },   
+        },
         "sourceType": "module"
     },
     "plugins": [
@@ -16,8 +16,9 @@ module.exports = {
     ],
     "rules": {
         "indent": [
-            "error",
-            "tab"
+            2, // this means error
+            2, // use 2 spaces instaed of tab
+            {"SwitchCase": 1}
         ],
         "linebreak-style": [
             "error",
