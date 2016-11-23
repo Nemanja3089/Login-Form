@@ -15,7 +15,7 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
+       "indent": [
             2, // this means error
             2, // use 2 spaces instaed of tab
             {"SwitchCase": 1}
@@ -31,6 +31,7 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-case-declarations": 0
     }
 };
