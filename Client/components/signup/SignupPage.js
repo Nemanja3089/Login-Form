@@ -22,7 +22,7 @@ class SignupPage extends React.Component {
 SignupPage.propTypes = {
   userSignupRequest:React.PropTypes.func.isRequired,
   addFlashMessage:React.PropTypes.func.isRequired
-}
+};
 
 
 export default connect(null,{userSignupRequest, addFlashMessage})(SignupPage);

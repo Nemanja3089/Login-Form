@@ -3,31 +3,31 @@ import classnames from 'classnames';
 
 
 class FlashMessage extends React.Component{
-constructor(props){
-  super(props);
-  this.onClick=this.onClick.bind(this);
+  constructor(props){
+    super(props);
+    this.onClick=this.onClick.bind(this);
 
-}
-onClick(){
-  this.props.deleteFlashMesssage(this.props.message.id);
-}
-    render(){
+  }
+  onClick(){
+    this.props.deleteFlashMesssage(this.props.message.id);
+  }
+  render(){
     const { id,type,text } = this.props.message;
 
-      return(
+    return(
         <div className={classnames('alert', {
-        'alert-success': type === 'succes',
-        'alert-danger': type === 'error'
-})}>
+          'alert-success': type === 'succes',
+          'alert-danger': type === 'error'
+        })}>
       <button onClick={this.onClick} className="close"><span>&times;</span></button>
          {text}
         </div>
-      );
-    }
+    );
   }
-  FlashMessage.propTypes = {
-    message:React.PropTypes.object.isRequred,
-    deleteFlashMesssage:React.PropTypes.func.isRequred
   }
+FlashMessage.propTypes = {
+  message:React.PropTypes.object.isRequred,
+  deleteFlashMesssage:React.PropTypes.func.isRequred
+};
 
- export default FlashMessage;
+export default FlashMessage;

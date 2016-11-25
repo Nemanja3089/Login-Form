@@ -11,7 +11,7 @@ let app = express();
 
 app.use(bodyParser.json());
 
-app.use("/api/users",users);
+app.use('/api/users',users);
 
 const compiler = webpack(webpackConfig);
 app.use(webpackMiddleware(compiler, {

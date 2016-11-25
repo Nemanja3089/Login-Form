@@ -5,29 +5,29 @@ import { deleteFlashMesssage } from '../../actions/flashMessages';
 
 class FlashMessagesList extends React.Component{
 
-    render(){
+  render(){
     const messages = this.props.messages.map(message =>
       <FlashMessage key ={message.id} message = {message} deleteFlashMesssage = {this.props.deleteFlashMesssage}/>
     );
 
-      return(
+    return(
         <div>
          {messages}
         </div>
-      );
-    }
+    );
+  }
   }
 
 
 FlashMessagesList.propTypes = {
   messages:React.PropTypes.array.isRequred,
   deleteFlashMesssage:React.PropTypes.func.isRequred
-}
+};
 
 function mapStateToProps(state){
   return{
     messages:state.flashMessages
-  }
+  };
 
 }
 

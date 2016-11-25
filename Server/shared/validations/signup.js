@@ -9,15 +9,7 @@ export default function validateInput(data){
 
   if(Validator.isEmpty(data.email)){
     errors.email = 'This field is required';
-
   }
-/*  if(!Validator.isEmail(data.email)){
-    errors.email = 'This field  must by email';
-
-  }
-  */
-
-
   if(Validator.isEmpty(data.password)){
     errors.password = 'This field is required';
   }
@@ -35,5 +27,5 @@ export default function validateInput(data){
   return{
     errors,
     isValid: isEmpty(errors)
-  }
+  };
 }
