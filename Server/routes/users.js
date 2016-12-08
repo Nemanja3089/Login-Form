@@ -6,11 +6,10 @@ import User from '../models/user';
 
 let router = express.Router();
 
-
-
 router.post('/',(req,res) => {
   const { errors, isValid} = validateInput(req.body);
   if(isValid){
+
     const { username, password, timezone, email } = req.body;
     const password_digest = bcrypt.hashSync(password,10);
 
@@ -20,6 +19,7 @@ router.post('/',(req,res) => {
     .then(user => res.json({ succes:true}))
     .catch(err => res.status(500).json({error:err}));
 
+    res.json({succes:true});
   }
   else{
     res.status(400).json(errors);

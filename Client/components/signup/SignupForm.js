@@ -11,31 +11,31 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        username: '',
-        email: '',
+      username: '',
+      email: '',
       password: '',
       passwordConfirmation: '',
       timezone: '',
       errors:{},
       isLoading: false
-         }
-      this.onChange = this.onChange.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
-       }
-    onChange(e){
-      this.setState({[e.target.name]:e.target.value});
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onChange(e){
+    this.setState({[e.target.name]:e.target.value});
+  }
+  isValid(){
+    const { errors, isValid} = validateInput(this.state);
+    if(!isValid){
+      this.setState({errors});
     }
-    isValid(){
-      const { errors, isValid} = validateInput(this.state);
-      if(!isValid){
-        this.setState({errors});
-      }
-      return isValid;
-    }
-    onSubmit(e){
+    return isValid;
+  }
+  onSubmit(e){
 
-      e.preventDefault();
-      if(this.isValid()){
+    e.preventDefault();
+    if(this.isValid()){
       this.setState({errors: {}, isLoading: true});
       this.props.userSignupRequest(this.state).then(
         () => {
@@ -49,10 +49,10 @@ class SignupForm extends React.Component {
         ({data}) => this.setState({errors:data, isLoading: false})
       );
     }
-    }
+  }
   render() {
-      const {errors} = this.state;
-      const options = map(timezones, (val, key) =>
+    const {errors} = this.state;
+    const options = map(timezones, (val, key) =>
       <option key={val} value={val}>{key}</option>);
     return (
 
@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
       field="passwordConfirmation"
       type="password"
 />
-           <div className={classnames("form-group",{'has-error':errors.timezone})}>
+           <div className={classnames('form-group',{'has-error':errors.timezone})}>
               <label className="control-label">Timezone</label>
               <select
               className="form-control"
@@ -122,9 +122,9 @@ class SignupForm extends React.Component {
 SignupForm.propTypes = {
   userSignupRequest:React.PropTypes.func.isRequired,
   addFlashMessage:React.PropTypes.func.isRequired
-}
+};
 SignupForm.contextTypes = {
   router:React.PropTypes.object.isRequired
-}
+};
 
 export default SignupForm;

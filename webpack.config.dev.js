@@ -25,11 +25,11 @@ export default {
           path.join(__dirname, 'Server/shared')
 
         ],
-      loaders: [ 'react-hot','babel' ]
+        loaders: [ 'react-hot','babel' ]
       }
     ]
   },
   resolve: {
     extentions: [ '', '.js' ]
   }
-}
+};
