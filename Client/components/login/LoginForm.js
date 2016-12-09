@@ -1,7 +1,7 @@
 import React from 'react';
 import TextFieldGroup from '../common/TextFieldGroup';
 import validateInput from '../../../Server/shared/validations/login';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { login } from '../../actions/login';
 
 class LoginForm extends React.Component {
