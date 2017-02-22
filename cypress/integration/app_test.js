@@ -75,7 +75,7 @@ describe("Tests",function(){
     .find('select').should('contain', 'Choose Your Timezone')
   })
 
-  it("Making some actions",function(){
+  it.only("Making some actions",function(){
     cy
     .visit('http://localhost:3000/signup')
 
@@ -96,6 +96,11 @@ describe("Tests",function(){
     .find('.help-block').should('contain', 'This field is required').end()
 
     .get('.btn-lg').click()
+
+    // .get('input:first').type('Some username').type('{enter}').should('not.to.be.empty')
+    // .contains('Some username')
+    // This is not work some error is happend!!!
+
 
   })
 })
