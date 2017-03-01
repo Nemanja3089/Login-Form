@@ -1,11 +1,13 @@
 describe("Tests",function(){
 
   beforeEach(function(){
-    cy.visit("http://localhost:3000")
+    Cypress.config('baseUrl', 'http://localhost:3000')
   })
 
   it("Assert that title is correct",function(){
-   cy.title().should("eq", "Red Dice")
+   cy
+    .visit('/')
+    .title().should("eq", "Red Dice")
   })
 
   it("First page chechout links and staff",function(){
@@ -75,7 +77,7 @@ describe("Tests",function(){
     .find('select').should('contain', 'Choose Your Timezone')
   })
 
-  it.only("Making some actions",function(){
+  it("Making some actions",function(){
     cy
     .visit('http://localhost:3000/signup')
 
@@ -101,6 +103,20 @@ describe("Tests",function(){
     // .contains('Some username')
     // This is not work some error is happend!!!
 
+    .get('input:first').type('Some username').type('{enter}')
+    .get('ul li:last').click().url().should('eq', 'http://localhost:3000/login')
 
   })
+  it("Making more bad actions",function(){
+    cy
+    .visit('http://localhost:3000/signup')
+    .get('form').submit()
+    .find('span').should('have.class', 'help-block')
+    .and('contain', 'This field')
+    .reload()
+    .get('form').signUp()
+  })
+  it("XHR at login page",function(){
+
+})
 })
