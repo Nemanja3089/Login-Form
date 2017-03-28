@@ -1,16 +1,16 @@
 describe("Tests",function(){
 
   beforeEach(function(){
-    Cypress.config('baseUrl', 'http://localhost:3000')
+    cy.visit('/')
   })
 
-  it("Assert that title is correct",function(){
+  it("Has a correct title",function(){
    cy
     .visit('/')
     .title().should("eq", "Red Dice")
   })
 
-  it("First page chechout links and staff",function(){
+  it("It has all needed links",function(){
     cy
     .get('.navbar-brand').should('contain', 'Red Dice')
     .get('ul li:first').should('contain', 'Sign up')
@@ -104,19 +104,26 @@ describe("Tests",function(){
     // This is not work some error is happend!!!
 
     .get('input:first').type('Some username').type('{enter}')
+
     .get('ul li:last').click().url().should('eq', 'http://localhost:3000/login')
 
   })
-  it("Making more bad actions",function(){
+  it("Making more bad actions", function(){
     cy
-    .visit('http://localhost:3000/signup')
+    .visit('signup')
     .get('form').submit()
     .find('span').should('have.class', 'help-block')
     .and('contain', 'This field')
     .reload()
     .get('form').signUp()
   })
-  it("XHR at login page",function(){
-
+  it("Login and logout",function(){
+   cy
+    .visit('login').login().url().should('eq','http://localhost:3000/')
+    .get('a').should('contain','Logout')
+    .get('a:last').click()
+    .get('a').should('not.contain','Logout')
 })
+  it.only("XHR in login page")
+
 })

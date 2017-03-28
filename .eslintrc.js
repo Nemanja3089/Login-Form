@@ -3,6 +3,7 @@ module.exports = {
     "browser": true,
     "es6": true
   },
+  "globals": ["describe", "it", "beforeEach", "cy"],
   "parser": "babel-eslint",
   "extends": [
     "standard",
